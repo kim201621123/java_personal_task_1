@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -8,13 +10,17 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
         Scanner scExit = new Scanner(System.in);
+        Scanner scRemove = new Scanner(System.in);
+        Scanner scPrintMap = new Scanner(System.in);
 
         //결과 저장
-        int[] result = new int[10];
+        Map<Integer, Integer> intMap = new HashMap<>();
 
         int i = 0;
+        int removedCount = 0;
         do {
-
+            System.out.println("--------------------------------");
+            int result = 0;
 
             System.out.print("처음 숫자 :");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
@@ -28,56 +34,54 @@ public class App {
             char calChar = sc.next().charAt(0);
 
 
-            if((calChar == '/') && (num2 == 0)){
+            if ((calChar == '/') && (num2 == 0)) {
                 System.out.println("나누기 연산 시, 분모(2번째 정수)는 0이 될 수 없습니다. 종료!");
                 return;
             }
-            else if(i == result.length){
-                System.out.println(i+"번 째 result가 저장되었습니다.");
-                System.out.println("한 칸씩 앞으로 당기겠습니다.");
-                result[0] = 0;
-                for (int j = 0; j < i-1; j++) {
-                    result[j] = result[j+1];
-                }
-                result[i-1] = 0;
-                for (int in : result) {
-                    System.out.println(in);
-                }
-                i--;
-            }
 
-            switch (calChar){
+
+            switch (calChar) {
                 case '+':
-                    result[i] = num1 + num2;
+                    intMap.put(i, num1 + num2);
                     break;
                 case '-':
-                    result[i] = num1 - num2;
+                    intMap.put(i, num1 - num2);
                     break;
                 case '*':
-                    result[i] = num1 * num2;
+                    intMap.put(i, num1 * num2);
                     break;
                 case '/':
-                    result[i] = num1 / num2;
+                    intMap.put(i, num1 / num2);
                     break;
                 default:
                     System.out.println("Invalid calculate char.");
                     i--;
                     break;
             }
+            System.out.println("계산결과는 " + num1 + " " + calChar + " " + num2 + " = " + intMap.get(i) + " 입니다.");
 
-            System.out.println("계산결과는 "+num1+" "+calChar+" "+num2+" = "+result[i]+" 입니다.");
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까?(remove) : ");
+            if (scRemove.next().equals("remove")) {
 
-            for (int in : result) {
-                System.out.println(in);
+//                for (int j = 0; j < i - 1; j++) {
+//                    intMap.put(j, intMap.put(j + 1, intMap.get(j + 1)));
+//                }
+//                removedCount++;
+//                intMap.put(i - 1, null);
+//                for (int in : intMap.values()) {
+//                    System.out.println(in);
+//                }
+                intMap.remove(0);
             }
-
+            System.out.println("저장된 연산결과를 조회하시겠습니까?(inquiry) : ");
+            if (scPrintMap.next().equals("inquiry")) {
+                for (int in : intMap.values()) {
+                    System.out.println(in);
+                }
+            }
             System.out.print("더 입력하시겠습니까?(exit) : ");
             i++;
-        }while(!scExit.next().equals("exit"));
-
-
-
-
+        } while (!scExit.next().equals("exit"));
 
 
 
