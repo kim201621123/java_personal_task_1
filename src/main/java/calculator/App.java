@@ -16,8 +16,9 @@ public class App {
         //결과 저장
         Map<Integer, Integer> intMap = new HashMap<>();
 
-        int i = 0;
-        int removedCount = 0;
+        //calculator 객체 선언
+        Calculator intCalculator = new Calculator();
+
         do {
             System.out.println("--------------------------------");
             int result = 0;
@@ -33,59 +34,10 @@ public class App {
             // 스트링을 입력받되 맨 처음 인덱스의 char를 가져옴
             char calChar = sc.next().charAt(0);
 
+//            intCalculator 객체의 calculate 메서드 호출
+            intCalculator.calculate(num1, num2, calChar);
 
-            if ((calChar == '/') && (num2 == 0)) {
-                System.out.println("나누기 연산 시, 분모(2번째 정수)는 0이 될 수 없습니다. 종료!");
-                return;
-            }
-
-
-            switch (calChar) {
-                case '+':
-                    intMap.put(i, num1 + num2);
-                    break;
-                case '-':
-                    intMap.put(i, num1 - num2);
-                    break;
-                case '*':
-                    intMap.put(i, num1 * num2);
-                    break;
-                case '/':
-                    intMap.put(i, num1 / num2);
-                    break;
-                default:
-                    System.out.println("Invalid calculate char.");
-                    i--;
-                    break;
-            }
-            System.out.println("계산결과는 " + num1 + " " + calChar + " " + num2 + " = " + intMap.get(i) + " 입니다.");
-
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까?(remove) : ");
-            if (scRemove.next().equals("remove")) {
-
-//                for (int j = 0; j < i - 1; j++) {
-//                    intMap.put(j, intMap.put(j + 1, intMap.get(j + 1)));
-//                }
-//                removedCount++;
-//                intMap.put(i - 1, null);
-//                for (int in : intMap.values()) {
-//                    System.out.println(in);
-//                }
-                intMap.remove(0);
-            }
-            System.out.println("저장된 연산결과를 조회하시겠습니까?(inquiry) : ");
-            if (scPrintMap.next().equals("inquiry")) {
-                for (int in : intMap.values()) {
-                    System.out.println(in);
-                }
-            }
-            System.out.print("더 입력하시겠습니까?(exit) : ");
-            i++;
-        } while (!scExit.next().equals("exit"));
-
-
-
-
+        }while (!scExit.next().equals("exit"));
 
     }
 }
