@@ -19,7 +19,8 @@ public class App {
         //calculator 객체 선언
         Calculator intCalculator = new Calculator();
 
-        do {
+        for (int i = 0; !scExit.next().equals("exit"); i++) {
+
             System.out.println("--------------------------------");
             int result = 0;
 
@@ -36,8 +37,11 @@ public class App {
 
 //            intCalculator 객체의 calculate 메서드 호출
             intCalculator.calculate(num1, num2, calChar);
+            // 연산 삭제 메소드
+            intCalculator.removeResult();
+            intCalculator.inquiryResults();
 
-        }while (!scExit.next().equals("exit"));
+        }
 
     }
 }
