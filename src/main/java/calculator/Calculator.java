@@ -44,7 +44,7 @@ public class Calculator {
 
 
         key++;
-        System.out.print("더 입력하시겠습니까?(exit) : ");
+
 
         return intMap.get(--key);
     }
@@ -65,11 +65,8 @@ public class Calculator {
     }
     public void removeResult() {
         System.out.println("-------------Remove------------");
-        System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까?(remove) : ");
-        if (scRemove.next().equals("remove")) {
             intMap.remove(0);
             System.out.println("삭제되었습니다.");
-        }
     }
 
     public void inquiryResults() {
@@ -77,7 +74,8 @@ public class Calculator {
         System.out.println("저장된 연산결과를 조회하시겠습니까?(inquiry) : ");
         if (scPrintMap.next().equals("inquiry")) {
             for (int in : intMap.values()) {
-                System.out.println(in);
+                System.out.print(in);
+                System.out.println(" ");
             }
         }
     }
