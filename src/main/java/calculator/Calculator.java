@@ -59,20 +59,18 @@ public class Calculator {
     public void setIntMap(int keySetter, int valueSetter) {
         this.intMap.put(keySetter, valueSetter);
     }
+
     public void removeResult() {
         System.out.println("-------------Remove------------");
-            intMap.remove(0);
-            System.out.println("삭제되었습니다.");
+        intMap.remove(0);
+        System.out.println("삭제되었습니다.");
     }
 
     public void inquiryResults() {
         System.out.println("------------inquiry----------");
-        System.out.println("저장된 연산결과를 조회하시겠습니까?(inquiry) : ");
-        if (scPrintMap.next().equals("inquiry")) {
-            for (int in : intMap.values()) {
-                System.out.print(in);
-                System.out.println(" ");
-            }
+        for (int in : intMap.values()) {
+            System.out.print(in);
+            System.out.println(" ");
         }
     }
 }
