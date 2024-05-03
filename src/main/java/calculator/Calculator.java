@@ -40,11 +40,7 @@ public class Calculator {
         }
         System.out.println("계산결과는 " + num1 + " " + calChar + " " + num2 + " = " + intMap.get(key) + " 입니다.");
 
-
-
-
         key++;
-
 
         return intMap.get(--key);
     }

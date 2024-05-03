@@ -71,47 +71,5 @@ public class App extends Exception{
             System.out.print("더 입력하시겠습니까?(exit) : ");
         }while (!scExit.next().equals("exit"));
 
-//
-//        for (int i = 0; !scExit.next().equals("exit"); i++) {
-//
-//            System.out.println("--------------------------------");
-//            int result = 0;
-//
-//            int num1 = 0;
-//            int num2 = 0;
-//            char calChar = '+';
-//
-//            System.out.print("처음 숫자 :");
-//            try {
-//                num1 = sc.nextInt();
-//            } catch (Exception e){
-//                System.out.println("e.getMessage() = "  + e.getMessage());
-//            }
-//            // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
-//
-//            System.out.print("두번째 숫자 : ");
-//            // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
-//            try {
-//                num2 = sc.nextInt();
-//            } catch (Exception e){
-//                System.out.println("e.getMessage() = "  + e.getMessage());
-//            }
-//
-//            System.out.print("사칙연산 기호를 입력하세요 :");
-//            // 스트링을 입력받되 맨 처음 인덱스의 char를 가져옴
-//
-//            try {
-//                calChar = sc.next().charAt(0);
-//            } catch (Exception e){
-//                System.out.println("e.getMessage() = "  + e.getMessage());
-//            }
-////            intCalculator 객체의 calculate 메서드 호출
-//            intCalculator.calculate(num1, num2, calChar);
-//            // 연산 삭제 메소드
-//            intCalculator.removeResult();
-//            intCalculator.inquiryResults();
-//
-//        }
-
     }
 }
